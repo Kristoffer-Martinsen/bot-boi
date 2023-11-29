@@ -1,6 +1,7 @@
 import { Client, Events, GatewayIntentBits } from 'discord.js';
 import { config } from 'dotenv';
 import * as helloworld from './commands/helloWorld.js';
+import * as makePoll from './commands/makePoll.js';
 
 config();
 
@@ -20,5 +21,8 @@ client.on(Events.InteractionCreate, async (interaction) => {
 
   if (interaction.commandName === 'helloworld') {
     await helloworld.execute(interaction);
+  }
+  if (interaction.commandName === 'make-poll') {
+    await makePoll.execute(interaction);
   }
 });
